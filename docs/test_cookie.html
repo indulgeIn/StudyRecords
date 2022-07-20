@@ -98,7 +98,7 @@
 
 <script>
   document.getElementById("requestUrlInput").value = document.location;
-  
+
   function requestUrl() {
     //加query避免命中缓存
     var date = new Date();
@@ -107,6 +107,8 @@
     xmlhttp.open('GET', url, false);
     xmlhttp.send();
     
+    alert("请求完成");
+
     var value = document.cookie;
     value = value ? value : "null";
     document.getElementById("syncGetCookieText").innerText = value;
