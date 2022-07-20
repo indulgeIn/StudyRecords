@@ -88,7 +88,7 @@
   </p>
 </div>
 <div>
-  url <input style="width: 80%;" type="text" id="requestUrlInput" value="https://test.static.res.qq.com/nav/qb/1/anycookie.html">
+  url <input style="width: 80%;" type="text" id="requestUrlInput" value="">
   <br>
   <button onclick="requestUrl()">访问url</button>
   <br>
@@ -98,6 +98,8 @@
 
 <script>
   function requestUrl() {
+    document.getElementById("requestUrlInput").value = document.location;
+
     //加query避免命中缓存
     var date = new Date();
     var url = document.getElementById("requestUrlInput").value + "?date=" + date;
@@ -116,7 +118,7 @@
 <div class="explain">
   测试要点
   <p>
-    1. 在 iframe 同域场景，参考前面的测试要点测试，且与主 frame 的 Cookie 互通；
+    1. 在 iframe 内部，参考前面的测试要点测试，且与主 frame 的 Cookie 互通；
   </p>
 </div>
 <div>
@@ -135,7 +137,25 @@
 
 
 <h1>跨域 iframe 读写 Cookie</h1>
-TODO
+<div class="explain">
+  测试要点
+  <p>
+    1. 在 iframe 内部，参考前面的测试要点测试；
+  </p>
+</div>
+<div>
+<button onclick="addCrossSiteIframe()">添加 iframe，地址为: https://indulgein.github.io/StudyRecords/test_cookie.html</button>
+</div>
+<div>
+  <iframe style="width: 80%;height: 40%;" src="" frameborder="0" id="iframe2"></iframe>
+</div>
+
+<script>
+  function addCrossSiteIframe() {
+    var iframe = document.getElementById("iframe2");
+    iframe.src = "https://indulgein.github.io/StudyRecords/test_cookie.html";
+  }
+</script>
 
 
 </body>
