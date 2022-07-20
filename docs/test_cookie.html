@@ -97,9 +97,9 @@
 </div>
 
 <script>
+  document.getElementById("requestUrlInput").value = document.location;
+  
   function requestUrl() {
-    document.getElementById("requestUrlInput").value = document.location;
-
     //加query避免命中缓存
     var date = new Date();
     var url = document.getElementById("requestUrlInput").value + "?date=" + date;
