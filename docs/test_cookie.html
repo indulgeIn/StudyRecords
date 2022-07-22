@@ -77,7 +77,7 @@
     1. 网络请求响应头"Set-Cookie"的数据，可以同步使用"document.cookie"读取：需 Native 代码拦截这个请求手动加入测试的"Set-Cookie"响应头，然后在下面查看是否 JS 读取出来了；
     <div>
       示例代码：
-      if ([dataTask.currentRequest.URL.absoluteString hasPrefix:@"https://test.static.res.qq.com/nav/qb/1/anycookie.html"]) {
+      if ([dataTask.currentRequest.URL.absoluteString hasPrefix:@"https://test.static.res.qq.com/nav/answeryang/"]) {
         NSHTTPURLResponse *originRsp = (NSHTTPURLResponse *)response;
         NSMutableDictionary *tempHeaders = originRsp.allHeaderFields ? [originRsp.allHeaderFields mutableCopy] : [NSMutableDictionary dictionary];
         tempHeaders[@"Set-Cookie"] = [NSString stringWithFormat:@"qb_rsp_time=%@; path=/", [NSDate date]];
@@ -106,8 +106,6 @@
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET', url, false);
     xmlhttp.send();
-    
-    alert("请求完成");
 
     var value = document.cookie;
     value = value ? value : "null";
